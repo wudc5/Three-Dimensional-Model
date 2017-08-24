@@ -1,7 +1,9 @@
 #coding=utf-8
+#挖出图像区域
+
 import cv2
 import numpy as np
-fn = "pictures/Y3_dino.jpg"
+fn = "pictures/0.117.jpg"
 print fn
 img = cv2.imread(fn)
 sp = img.shape
@@ -41,12 +43,12 @@ rect = cv2.minAreaRect(c)
 box = np.int0(cv2.cv.BoxPoints(rect))
 print "7"
 
-# # draw a bounding box arounded the detected barcode and display the image
-# cv2.drawContours(image, [box], -1, (0, 255, 0), 3)
-# cv2.imshow("Image", image)
-# cv2.imwrite("contoursImage2.jpg", image)
-# cv2.waitKey(0)
-# print "8"
+# draw a bounding box arounded the detected barcode and display the image
+cv2.drawContours(image, [box], -1, (0, 255, 0), 3)
+cv2.imshow("Image", image)
+cv2.imwrite("contoursImage2.jpg", image)
+cv2.waitKey(0)
+print "8"
 
 Xs = [i[0] for i in box]
 Ys = [i[1] for i in box]
